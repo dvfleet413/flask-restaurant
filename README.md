@@ -22,6 +22,9 @@ This app takes advantage of MongoDB's schemaless pattern. There is only one mode
 
 ## Endpoints
 
+![](flask_restaurant.gif)
+
+
 * ` GET /entrees` - requests to this endpoint return all of the entree documents in the database
 * ` POST /entrees` - requests to this endpoint persist an entree (in the body of the request) to the database
 * ` GET /entrees/<id>` - requests to this endpoint find and return an entree in the database using the id param
