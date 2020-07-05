@@ -3,7 +3,8 @@ from database.db import initialize_db
 from flask_restful import Api
 from resources.routes import initialize_routes
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_pyfile('config.py')
 api = Api(app)
 
 app.config['MONGODB_SETTINGS'] = {
