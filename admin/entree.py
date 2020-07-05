@@ -9,7 +9,7 @@ bp = Blueprint('entree', __name__)
 
 @bp.route('/')
 def index():
-    entrees = Entree.objects().to_json()
+    entrees = Entree.objects()
     return render_template('entree/index.html', entrees=entrees)
 
 
@@ -30,7 +30,7 @@ def create():
             Entree(name=name, wines=wines, allergens=allergens).save()
             return redirect(url_for('entree.index'))
 
-    return render_template('entree.create.html')
+    return render_template('entree/create.html')
 
 
 def get_entree(id):

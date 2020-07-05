@@ -12,6 +12,6 @@ app.config['MONGODB_SETTINGS'] = {
     'host': 'mongodb://localhost/flask-restaurant'
 }
 
-app.register_blueprint(entree.bp)
+app.register_blueprint(entree.bp, url_prefix='/admin')
 initialize_db(app)
 initialize_routes(api)
