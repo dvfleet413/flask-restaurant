@@ -6,13 +6,14 @@ from database.models import Entree
 
 bp = Blueprint('entree', __name__)
 
+
 @bp.route('/')
 def index():
     entrees = Entree.objects().to_json()
     return render_template('entree/index.html', entrees=entrees)
 
 
-@bp.route('/create', methods='GET', 'POST')
+@bp.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
         name = request.form['name']
@@ -70,4 +71,3 @@ def delete(id):
     entree = get_entree(id)
     entree.delete()
     return redirect(url_for('entree.index'))
-
