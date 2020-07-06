@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/davidvanfleet/.pyenv/versions/3.8.3/bin/python"
+    "python.pythonPath": "flaskvenv/bin/python",
+    "python.linting.pycodestyleEnabled": true
 }
