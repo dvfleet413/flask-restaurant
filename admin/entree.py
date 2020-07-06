@@ -17,8 +17,8 @@ def index():
 def create():
     if request.method == 'POST':
         name = request.form['name']
-        wines = request.form['wines']
-        allergens = request.form['allergens']
+        wines = request.form.getlist('wines')
+        allergens = request.form.getlist('allergens')
         error = None
 
         if not name:
@@ -47,8 +47,8 @@ def update(id):
 
     if request.method == 'POST':
         name = request.form['name']
-        wines = request.form['wines']
-        allergens = request.form['allergens']
+        wines = request.form.getlist('wines')
+        allergens = request.form.getlist('allergens')
         error = None
 
         if not name:

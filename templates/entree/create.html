@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Entree{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="name">Name</label>
+    <input name="name" id="name" value="{{ request.form['name'] }}" required>
+    <div id="wines-container">
+      <label for="wines">Wine Pairing</label>
+      <input name="wines" id="wines" />
+      <button onclick="addWine()">Add Wine</button><br />
+    </div>
+    <div id="allergens-container">
+      <label for="allergens">Allergen</label>
+      <input name="allergens" id="allergens" />
+      <button onclick="addAllergen()">Add Allergen</button><br />
+    </div>
+    <input type="submit" value="Save">
+  </form>
+  <script src="{{ url_for('static', filename='entree.js') }}"></script>
+{% endblock %}

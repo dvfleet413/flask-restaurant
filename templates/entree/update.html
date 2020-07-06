@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ entree['name'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="name">Name</label>
+    <input name="name" id="name"
+      value="{{ request.form['name'] or entree['name'] }}" required /><br />
+    <h3>Wine Pairings</h3>
+    {% for wine in entree['wines'] %}
+        <label for="wines">Wine Pairing</label>
+        <input name="wines" id="wines" value="{{ wine }}" /><br />
+    {% endfor %}
+    <h3>Allergens</h3>
+    {% for allergen in entree['allergens'] %}
+        <label for="allergens">Allergen</label>
+        <input name="allergens" id="allergens" value="{{ allergen }}" /><br />
+    {% endfor %}
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('entree.delete', id=entree['id']) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
