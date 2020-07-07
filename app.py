@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from database.db import initialize_db
 from admin import entree
 from flask_restful import Api
@@ -15,3 +15,8 @@ app.config['MONGODB_SETTINGS'] = {
 app.register_blueprint(entree.bp, url_prefix='/admin')
 initialize_db(app)
 initialize_routes(api)
+
+
+@app.route("/")
+def home():
+    return render_template("/home.html")
