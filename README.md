@@ -20,7 +20,11 @@ This app was built as a backend for data related to a restaurant menu. It was bu
 
 This app takes advantage of MongoDB's schemaless pattern. There is only one model (Entree), which has three fields - name (a string), recommended wine pairings (a list of strings) and allergens (a list of strings)
 
-## Endpoints
+## Admin Panel
+
+The app has an admin panel located at /admin that allows for easy CRUD operations on database records.
+
+## API Endpoints
 
 ![](flask_restaurant.gif)
 
