@@ -10,15 +10,27 @@
     <input name="name" id="name"
       value="{{ request.form['name'] or entree['name'] }}" required /><br />
     <h3>Wine Pairings</h3>
-    {% for wine in entree['wines'] %}
-        <label for="wines">Wine Pairing</label>
-        <input name="wines" id="wines" value="{{ wine }}" /><br />
-    {% endfor %}
+    <div id="wines-container">
+      {% for wine in entree['wines'] %}
+        <div>
+          <label for="wines">Wine Pairing</label>
+          <input name="wines" id="wines" value="{{ wine }}" />
+          <button onclick="addWine()">+</button>
+          <button onclick="removeItem()">-</button><br />
+        </div>
+      {% endfor %}
+    </div>
     <h3>Allergens</h3>
-    {% for allergen in entree['allergens'] %}
-        <label for="allergens">Allergen</label>
-        <input name="allergens" id="allergens" value="{{ allergen }}" /><br />
-    {% endfor %}
+    <div id="allergens-container">
+      {% for allergen in entree['allergens'] %}
+        <div>
+          <label for="allergens">Allergen</label>
+          <input name="allergens" id="allergens" value="{{ allergen }}" />
+          <button onclick="addAllergen()">+</button>
+          <button onclick="removeItem()">-</button><br />
+        </div>
+      {% endfor %}
+    </div>
     <input type="submit" value="Save">
   </form>
   <hr>

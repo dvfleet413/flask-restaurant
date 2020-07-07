@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
-
 {% block header %}
   <h1>{% block title %}Entrees{% endblock %}</h1>
-  <a class="action" href="{{ url_for('entree.create') }}">New</a>
+  <a class="btn btn-primary" href="{{ url_for('entree.create') }}">New</a>
 {% endblock %}
 
 {% block content %}
   {% for entree in entrees %}
-    <article class="entree">
+    <div class="entree">
       <header>
         <div>
-          <h1>{{ entree['name'] }}</h1>
+          <h2>{{ entree['name'] }}</h1>
         </div>
-          <a class="action" href="{{ url_for('entree.update', id=entree['id']) }}">Edit</a>
+          <a class="btn btn-secondary" href="{{ url_for('entree.update', id=entree['id']) }}">Edit</a>
       </header>
-      <p class="wines">{{ entree['wines'] }}</p>
-        <p class="allergens">{{ entree['allergens'] }}</p>
-    </article>
+      <h4>Wine Pairings:</h4>
+      <ul>
+        {% for wine in entree['wines'] %}
+          <li class="wines">{{ wine }}</li>
+        {% endfor %}
+      </ul>
+      <h4>Allergens:</h4>
+      <ul>
+        {% for allergen in entree['allergens'] %}
+          <li class="allergens">{{ allergen }}</li>
+        {% endfor %}
+      </ul>
+    </div>
     {% if not loop.last %}
       <hr>
     {% endif %}
