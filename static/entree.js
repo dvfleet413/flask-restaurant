@@ -17,7 +17,7 @@ const addAllergen = () => {
     newField.innerHTML = `
         <div>
             <label for="allergens">Allergen</label>
-            <input name="Allergens" id="allergens" />
+            <input name="allergens" id="allergens" />
             <button onclick="addAllergen()">+</button>
             <button onclick="removeItem()">-</button><br />
         </div>`
